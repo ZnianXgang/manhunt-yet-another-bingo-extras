@@ -137,6 +137,44 @@
           "text": "追踪器",
           "color": "white",
           "extra": [
+            {"text": " (自动更新)", "color": "gray"}
+          ]
+        },
+        "conditions": [
+          {
+            "condition": "value_check",
+            "value": {
+              "type": "score",
+              "score": "mh.settings",
+              "target": {
+                "type": "fixed",
+                "name": "追踪器:更新模式"
+              }
+            },
+            "range": 3
+          },
+          {
+            "condition": "value_check",
+            "value": {
+              "type": "score",
+              "score": "mh.settings",
+              "target": {
+                "type": "fixed",
+                "name": "追踪器:定期更新周期秒数"
+              }
+            },
+            "range": 1
+          }
+        ],
+        "entity": "this"
+      },
+      {
+        "function": "minecraft:set_name",
+        "name": {
+          "italic": false,
+          "text": "追踪器",
+          "color": "white",
+          "extra": [
             {"text": " (", "color": "gray"},
             {"score": {"name": "定期更新倒计时","objective":"mh.temp"}, "color": "yellow"},
             {"text": "秒后更新)", "color": "gray"}
@@ -154,6 +192,20 @@
               }
             },
             "range": 3
+          },
+          {
+            "condition": "value_check",
+            "value": {
+              "type": "score",
+              "score": "mh.settings",
+              "target": {
+                "type": "fixed",
+                "name": "追踪器:定期更新周期秒数"
+              }
+            },
+            "range": {
+              "min": 2
+            }
           }
         ],
         "entity": "this"
