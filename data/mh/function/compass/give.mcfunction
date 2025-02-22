@@ -45,5 +45,5 @@ execute unless entity @s[team=hunters] unless entity @s[team=runners] run \
 execute if score 追踪器:更新模式 mh.settings matches 2 if score 追踪器:手持激活模式 mh.settings matches 1 run \
     return fail
 # 更新全背包
-execute if items entity @s container.* compass[minecraft:custom_data~{"mh:tracker":{}}] run \
-    function mh:compass/refresh/inventory
+execute if items entity @s container.* compass[minecraft:custom_data~{"mh:tracker":{}}] \
+    at @s run function mh:compass/refresh/inventory

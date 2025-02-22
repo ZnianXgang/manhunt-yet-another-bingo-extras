@@ -54,5 +54,9 @@ bossbar set mh:compass_timer name [{"text":"距追踪器更新还剩：","color"
 execute store result bossbar mh:compass_timer max run scoreboard players get 追踪器:定期更新周期秒数 mh.settings
 execute store result bossbar mh:compass_timer value run scoreboard players get 定期更新倒计时 mh.temp
 # 更新追踪者的指南针
-execute as @a[gamemode=!spectator] at @s run function mh:compass/refresh/inventory
+execute if score 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒数 mh.settings \
+    as @a[gamemode=!spectator] at @s run function mh:compass/refresh/inventory
+# 倒计时没完, 只更新信息
+execute unless score 定期更新倒计时 mh.temp = 追踪器:定期更新周期秒数 mh.settings \
+    as @a[gamemode=!spectator] run function mh:compass/refresh/inventory_iteminfo_only
 
