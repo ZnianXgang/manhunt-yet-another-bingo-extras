@@ -20,8 +20,8 @@ function mh:compass/util/itemmodify_coord with storage mh:temp in
 ## 更新info和trackerData
 function mh:compass/util/construct_tracking_text
 data modify storage mh:temp trackerData.selector set from storage mh:temp in.guuid
-# 确保物品每秒至少动一下
-execute store result storage mh:temp trackerData.info.scaledGametime long 0.05 run scoreboard players get 当前gametime mh.temp
+# 确保物品0.5秒至少动一下
+execute store result storage mh:temp trackerData.info.scaledGametime long 0.1 run scoreboard players get 当前gametime mh.temp
 # 实际维度
 $data modify storage mh:temp trackerData.info.exactDimension set from entity $(guuid) Dimension
 # 物品修饰器
