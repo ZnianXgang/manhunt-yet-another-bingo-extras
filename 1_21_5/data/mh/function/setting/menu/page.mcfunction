@@ -63,11 +63,11 @@ tellraw @s [ "\u00a7a逃者\u00a7r可追踪: ", \
 
 
 execute unless score 追踪器:丢弃时触发 mh.settings matches 1..2 run \
-    tellraw @s ["指南针丢弃事件: ",{"text":"[无动作]","color":"gray","hover_event":{"action": "show_text","value":"点击切换"},"click_event":{"action":"run_command","command":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/set_value/switch_drop_event\"}"}}]
+    tellraw @s ["指南针丢弃事件: ",{"text":"[无动作]","color":"gray","hover_event":{"action": "show_text","value":"点击切换"},"click_event":{"action":"run_command","command":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/switch/switch_drop_event\"}"}}]
 execute if score 追踪器:丢弃时触发 mh.settings matches 1 run \
-    tellraw @s ["指南针丢弃事件: ",{"text":"[切换目标]","color":"green","hover_event":{"action": "show_text","value":"点击切换"},"click_event":{"action":"run_command","command":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/set_value/switch_drop_event\"}"}}]
+    tellraw @s ["指南针丢弃事件: ",{"text":"[切换目标]","color":"green","hover_event":{"action": "show_text","value":"点击切换"},"click_event":{"action":"run_command","command":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/switch/switch_drop_event\"}"}}]
 execute if score 追踪器:丢弃时触发 mh.settings matches 2 run \
-    tellraw @s ["指南针丢弃事件: ",{"text":"[手动指定目标]","color":"green","hover_event":{"action": "show_text","value":"点击切换"},"click_event":{"action":"run_command","command":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/set_value/switch_drop_event\"}"}}]
+    tellraw @s ["指南针丢弃事件: ",{"text":"[手动指定目标]","color":"green","hover_event":{"action": "show_text","value":"点击切换"},"click_event":{"action":"run_command","command":"/function mh:setting/menu/show_post_executing {Command:\"function mh:setting/menu/switch/switch_drop_event\"}"}}]
 
 
 data modify storage mh:temp TextList set value [{},{},{},{}]
@@ -143,10 +143,10 @@ execute if score 追踪器:更新模式 mh.settings matches 1 run \
     tellraw @s ["指南针更新模式: ",{"text":"[快捷栏更新]","color":"green","hover_event":{"action": "show_text","value":["自动更新玩家快捷栏中所有指南针","\n\n性能开销: ",{"text":"严重","color":"red"}]},"click_event":{"action":"run_command","command":"/function mh:setting/menu/switch/switch_refresh_mode"}}, \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:快捷栏更新周期游戏刻" }, "color": "green", "underlined": true, "hover_event":{"action": "show_text","value":"可修改成1~60(默认10)"},"click_event":{"action":"suggest_command","command":"/function mh:setting/menu/set_value/hotbar_update_delay {Value: \"请输入\"}"}},{"text": "刻", "color": "green"}]
 execute if score 追踪器:更新模式 mh.settings matches 2 run \
-    tellraw @s ["指南针更新模式: ",{"text":"[手持更新]","color":"green","hover_event":{"action": "show_text","value":["只有玩家手持指南针时才更新",{"text":"中","color":"yellow"}]},"click_event":{"action":"run_command","command":"/function mh:setting/menu/switch/switch_refresh_mode"}}, \
+    tellraw @s ["指南针更新模式: ",{"text":"[手持更新]","color":"green","hover_event":{"action": "show_text","value":["只有玩家手持指南针时才更新","\n\n性能开销: ",{"text":"中","color":"yellow"}]},"click_event":{"action":"run_command","command":"/function mh:setting/menu/switch/switch_refresh_mode"}}, \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:手持更新周期游戏刻" }, "color": "green", "underlined": true, "hover_event":{"action": "show_text","value":"可修改成1~60(默认10)"},"click_event":{"action":"suggest_command","command":"/function mh:setting/menu/set_value/hand_update_delay {Value: \"请输入\"}"}},{"text": "刻", "color": "green"}]
 execute if score 追踪器:更新模式 mh.settings matches 3 run \
-    tellraw @s ["指南针更新模式: ",{"text":"[定期更新]","color":"yellow","hover_event":{"action": "show_text","value":["定期更新玩家背包中所有指南针",{"text":"大","color":"yellow"}]},"click_event":{"action":"run_command","command":"/function mh:setting/menu/switch/switch_refresh_mode"}}, \
+    tellraw @s ["指南针更新模式: ",{"text":"[定期更新]","color":"yellow","hover_event":{"action": "show_text","value":["定期更新玩家背包中所有指南针","\n\n性能开销: ",{"text":"大","color":"yellow"}]},"click_event":{"action":"run_command","command":"/function mh:setting/menu/switch/switch_refresh_mode"}}, \
   "  更新周期=", {"score": { "objective": "mh.settings", "name": "追踪器:定期更新周期秒数" }, "color": "yellow", "underlined": true, "hover_event":{"action": "show_text","value":"可修改为任意正整数"},"click_event":{"action":"suggest_command","command":"/function mh:setting/menu/set_value/timely_update_sec {Value: \"请输入\"}"}},{"text": "秒", "color": "yellow"}]
 
 
@@ -165,7 +165,7 @@ execute if score 追踪器:更新模式 mh.settings matches 3 \
 execute unless score 追踪器:更新模式 mh.settings matches 2 unless score 追踪器:更新模式 mh.settings matches 3 run \
     tellraw @s ""
 
-tellraw @s [{"text":"[冻结猎人..]","color":"#b3ffff","hover_event": {"action": "show_text","command":"/function #mh:set_freeze {Value:<秒数>}"},"click_event": {"action": "suggest_command","command":"/function #mh:set_freeze {Value:\"请输入\"}"}}, \
+tellraw @s [{"text":"[冻结猎人..]","color":"#b3ffff","hover_event": {"action": "show_text","value":"/function #mh:set_freeze {Value:<秒数>}"},"click_event": {"action": "suggest_command","command":"/function #mh:set_freeze {Value:\"请输入\"}"}}, \
     "",\
     {"text":"[清空玩家状态]","color":"yellow","hover_event": {"action": "show_text","value":"重置所有玩家的血量、背包、重生点、进度和配方"},"click_event": {"action": "suggest_command","command":"/function mh:setting/menu/recover_all"}}]
 
