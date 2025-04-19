@@ -16,6 +16,9 @@ data remove storage ur:temp ItemStack
 data modify storage ur:temp Slot set value "weapon.offhand"
 # create a copy of holding item stack
 data modify storage ur:temp ItemStack set from entity @s Inventory[{Slot:-106b}]
+# 1.21.5
+execute unless data storage ur:temp ItemStack run data modify storage ur:temp ItemStack set from entity @s equipment.offhand
+
 # COPY: set count to 1
 #data modify storage ur:temp ItemStack.count set value 1
 # COPY: delete use_remainder

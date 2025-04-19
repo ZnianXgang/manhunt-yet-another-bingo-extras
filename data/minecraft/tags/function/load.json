@@ -1,7 +1,6 @@
 {
   "values": [
     "mh:gu/zzz/load",
-    "mh:load",
-    "use_remain_helper:load"
+    "mh:load"
   ]
 }

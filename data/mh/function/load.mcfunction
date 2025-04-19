@@ -7,8 +7,8 @@ execute unless score 已应用默认设置 mh.settings matches 1 run function mh
 
 
 # triggers
-scoreboard objectives add mh.join.hunters trigger {"text":"加入猎人","color":"red","clickEvent":{"action":"suggest_command","value":"/trigger mh.join.hunters"}}
-scoreboard objectives add mh.join.runners trigger {"text":"加入逃者","color":"green","clickEvent":{"action":"suggest_command","value":"/trigger mh.join.runners"}}
+scoreboard objectives add mh.join.hunters trigger {"text":"加入猎人","color":"red"}
+scoreboard objectives add mh.join.runners trigger {"text":"加入逃者","color":"green"}
 
 
 # 其他
@@ -19,7 +19,6 @@ scoreboard objectives add mh.pdb.querydimension dummy
 bossbar add mh:compass_timer ""
 bossbar set mh:compass_timer color red
 bossbar add mh:freeze ""
-
 
 # 计划任务
 schedule function mh:schedule_task/keep_freeze 1s replace

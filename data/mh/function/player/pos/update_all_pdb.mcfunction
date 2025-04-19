@@ -10,7 +10,7 @@ function mh:player/pos/private/list_trail_dimensions with storage mh:temp in
 function mh:player/pos/private/update_pdb_foreach
 
 # 还有玩家自己的维度
-execute at @s summon marker run function mh:player/pos/__marker_block_pos
 data modify storage mh:temp in.dimension set from entity @s Dimension
 data modify storage mh:temp in.target.dimension set from storage mh:temp in.dimension
+execute at @s summon marker run function mh:player/pos/__marker_block_pos
 function mh:player/pos/private/save_lastoutput with storage mh:temp in
