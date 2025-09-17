@@ -31,5 +31,13 @@
         }
       }
     ]
+  },
+  "filter": {
+    "block": [
+      {
+        "namespace": "yet-another-minecraft-bingo",
+        "path": "yet-another-minecraft-bingo/teams/"
+      }
+    ]
   }
 }
