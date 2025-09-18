@@ -1,7 +1,7 @@
 {
     "name": "猎人",
     "shouldFormatName": false,
-    "symbol": "H",
+    "symbol": "[猎]",
     "color": "RED",
     "blockId": "minecraft:red_carpet"
 }
