@@ -10,9 +10,9 @@ team modify runners nametagVisibility always
 team modify runners color green
 
 ##
-scoreboard players set 允许自由选队 mh.settings 1
+scoreboard players set 允许自由选队 mh.settings 0
 ##  0:复活 1:加入猎人 2:旁观
-scoreboard players set 逃者死亡后 mh.settings 2
+scoreboard players set 逃者死亡后 mh.settings 1
 
 
 ##
@@ -53,7 +53,7 @@ scoreboard players set 队友追踪器:显示维度 mh.settings 1
 # 1.21.2或更高: 默认右键更新  1.21.1以下: 默认手持更新
 function mh:setting/default_update_mode
 ##
-scoreboard players set 追踪器:右键更新周期游戏刻 mh.settings 30
+scoreboard players set 追踪器:右键更新周期游戏刻 mh.settings 20
 ##
 scoreboard players set 追踪器:快捷栏更新周期游戏刻 mh.settings 10
 ##
