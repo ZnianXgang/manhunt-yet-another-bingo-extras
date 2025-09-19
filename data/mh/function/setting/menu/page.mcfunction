@@ -1,5 +1,4 @@
 # ======追杀指南针数据包设置======
-# 允许自由选队：[开启]
 # 逃者死亡后：[旁观]
 # 猎人可追踪：[队友][逃者]
 # 逃者可追踪：[队友][猎人]
@@ -10,11 +9,6 @@
 # 
 
 tellraw @s {"text":"","bold": true,"hoverEvent": {"action": "show_text","value": "Made by Noryea"},"extra": [{"text":"=","color":"#e796d0"},{"text":"=","color":"#e09aca"},{"text":"=","color":"#d99dc5"},{"text":"=","color":"#d1a1bf"},{"text":"=","color":"#caa4b9"},{"text":"=","color":"#c3a8b4"},{"text":"追","color":"#bcacae"},{"text":"杀","color":"#b4afa8"},{"text":"数","color":"#adb3a3"},{"text":"据","color":"#a6b79d"},{"text":"包","color":"#9fba97"},{"text":"设","color":"#98be92"},{"text":"置","color":"#90c18c"},{"text":"=","color":"#89c586"},{"text":"=","color":"#82c981"},{"text":"=","color":"#7bcc7b"},{"text":"=","color":"#73d075"},{"text":"=","color":"#6cd370"},{"text":"=","color":"#65d76a"}]}
-
-execute unless score 允许自由选队 mh.settings matches 1 run \
-    tellraw @s ["允许玩家自由选队: ",{"text":"[关闭]","color":"red","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 允许自由选队 mh.settings 1\"}"}}]
-execute if score 允许自由选队 mh.settings matches 1 run \
-    tellraw @s ["允许玩家自由选队: ",{"text":"[开启]","color":"green","hoverEvent":{"action": "show_text","value":"点击切换"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 允许自由选队 mh.settings 0\"}"}}]
 
 execute unless score 逃者死亡后 mh.settings matches 1..2 run \
     tellraw @s ["逃者死亡后: ",{"text":"[复活]","color":"green","hoverEvent":{"action": "show_text","value":"逃者死亡时不做任何操作"},"clickEvent":{"action":"run_command","value":"/function mh:setting/menu/show_post_executing {Command:\"scoreboard players set 逃者死亡后 mh.settings 1\"}"}}]

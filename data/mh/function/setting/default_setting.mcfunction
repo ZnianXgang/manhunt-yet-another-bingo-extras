@@ -9,8 +9,6 @@ team modify runners collisionRule always
 team modify runners nametagVisibility always
 team modify runners color green
 
-##
-scoreboard players set 允许自由选队 mh.settings 0
 ##  0:复活 1:加入猎人 2:旁观
 scoreboard players set 逃者死亡后 mh.settings 1
 
