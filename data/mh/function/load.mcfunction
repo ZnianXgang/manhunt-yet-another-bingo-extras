@@ -1,6 +1,3 @@
-team add hunters "猎人"
-team add runners "逃者"
-
 # settings
 scoreboard objectives add mh.settings dummy
 execute unless score 已应用默认设置 mh.settings matches 1 run function mh:setting/default_setting
